@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Revise os produtos escolhidos e combine o pagamento pelo WhatsApp."
+    />
+    <title>Meu carrinho | Atelier Art&amp;Sil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/editorial.css" />
+  </head>
+  <body class="pagina-carrinho">
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+    <svg class="sprite" aria-hidden="true">
+      <symbol
+        id="i-flor"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="#c4714f"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
+        <rect x="9" y="16" width="30" height="24" rx="3" stroke="#a67c52" />
+        <path d="M9 22h30" stroke="#a67c52" />
+        <circle cx="20" cy="10" r="3.4" />
+        <circle cx="28" cy="8" r="2.8" />
+        <path d="M20 13.4V20M28 10.8V20" />
+      </symbol>
+      <symbol
+        id="i-cart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="9" cy="20" r="1.4" />
+        <circle cx="18" cy="20" r="1.4" />
+        <path
+          d="M2 3h2.2l2.3 12.2a1.6 1.6 0 0 0 1.6 1.3h9.1a1.6 1.6 0 0 0 1.6-1.3L21 7H5"
+        />
+      </symbol>
+    </svg>
+    <div class="site-shell">
+      <div class="top-strip">
+        <span>Feito à mão para celebrar o que importa</span
+        ><span>Encomendas personalizadas &nbsp; | &nbsp; Fale conosco</span>
+      </div>
+      <header class="topo cart-topo">
+        <a
+          class="brand-lockup"
+          href="../index.html"
+          aria-label="Atelier Art e Sil - início"
+          ><svg aria-hidden="true"><use href="#i-flor" /></svg
+          ><span>Atelier Art&amp;Sil</span></a
+        >
+        <nav class="product-nav" aria-label="Navegação">
+          <a href="../index.html#produtos">Continuar comprando</a>
+        </nav>
+        <a class="cart-link" href="carrinho.html" aria-label="Carrinho, 0 itens"
+          ><svg aria-hidden="true"><use href="#i-cart" /></svg><span>0</span></a
+        >
+      </header>
+      <main class="cart-page" id="main-content" tabindex="-1">
+        <div class="cart-heading">
+          <div>
+            <p class="eyebrow">Sua seleção</p>
+            <h1>Meu carrinho</h1>
+          </div>
+          <a class="cart-back-link" href="../index.html#produtos"
+            >Continuar comprando <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <p class="demo-price-notice">
+          Os preços exibidos são demonstrativos e precisam ser confirmados pelo
+          WhatsApp antes do pagamento.
+        </p>
+        <div class="cart-layout">
+          <section
+            class="cart-items-section"
+            aria-labelledby="cart-items-title"
+          >
+            <h2 id="cart-items-title" class="sr-only">Produtos no carrinho</h2>
+            <div id="cart-items" class="cart-items" aria-live="polite"></div>
+          </section>
+          <aside class="cart-summary" aria-labelledby="cart-summary-title">
+            <h2 id="cart-summary-title">Resumo do pedido</h2>
+            <div class="summary-row">
+              <span>Itens selecionados</span
+              ><strong id="selected-count">0</strong>
+            </div>
+            <div class="summary-row summary-total">
+              <span>Total demonstrativo</span
+              ><strong id="cart-total">R$ 0,00</strong>
+            </div>
+            <div class="payment-contact">
+              <p class="eyebrow">Pagamento e atendimento</p>
+              <p>
+                Combine a forma de pagamento e confirme os valores diretamente
+                com o atelier.
+              </p>
+              <span class="whatsapp-example">WhatsApp de exemplo</span>
+              <strong class="whatsapp-number">+55 (11) 99999-9999</strong>
+              <a
+                id="whatsapp-checkout"
+                class="whatsapp-button is-disabled"
+                href="#"
+                aria-disabled="true"
+                target="_blank"
+                rel="noopener noreferrer"
+                >FALAR PELO WHATSAPP</a
+              >
+              <p class="whatsapp-disclaimer">
+                Número fictício de demonstração. Substitua pelo contato oficial
+                antes de publicar.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <script src="../js/catalog.js"></script>
+    <script src="../js/cart.js"></script>
+  </body>
+</html>
