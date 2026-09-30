@@ -1,0 +1,52 @@
+.sobre {
+  background:
+    radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.78), transparent 34%),
+    var(--paper-dark);
+  border-top: 1px solid rgba(56, 54, 76, 0.08);
+  border-bottom: 1px solid rgba(56, 54, 76, 0.08);
+  padding: clamp(56px, 8vw, 104px) var(--pad);
+}
+.sobre-container {
+  margin: 0 auto;
+  max-width: 920px;
+}
+.sobre-conteudo {
+  max-width: 760px;
+}
+.sobre .eyebrow {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.sobre h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 5vw, 4.3rem);
+  line-height: 0.98;
+  margin-bottom: 28px;
+}
+.sobre-texto {
+  color: var(--muted);
+  font-size: clamp(0.98rem, 1.5vw, 1.08rem);
+  line-height: 1.8;
+  margin-top: 18px;
+  max-width: 720px;
+}
+.sobre-texto strong {
+  color: var(--ink);
+}
+.sobre-texto em {
+  color: var(--accent);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.12em;
+  font-weight: 700;
+}
+@media (max-width: 700px) {
+  .sobre {
+    padding: 52px var(--pad) 60px;
+  }
+  .sobre h2 {
+    margin-bottom: 22px;
+  }
+  .sobre-texto {
+    line-height: 1.7;
+  }
+}
