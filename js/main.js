@@ -14,26 +14,18 @@ if (document.querySelector(".sobre")) {
   document.head.appendChild(aboutStylesheet);
 }
 
-function updateCartCount() {
-  let cart = [];
-  try {
-    const storedCart = JSON.parse(localStorage.getItem("atelier-cart") || "[]");
-    cart = Array.isArray(storedCart) ? storedCart : [];
-  } catch {
-    cart = [];
-  }
-  if (cartCount)
-    cartCount.textContent = cart.reduce(
-      (total, item) => total + Math.max(0, Number(item.quantity) || 0),
-      0,
-    );
-  if (cartCount)
-    cartCount
-      .closest(".cart-link")
-      .setAttribute(
-        "aria-label",
-        `Carrinho, ${cartCount.textContent} ${cartCount.textContent === "1" ? "item" : "itens"}`,
-      );
+if (document.querySelector(".depoimentos")) {
+  const testimonialsStylesheet = document.createElement("link");
+  testimonialsStylesheet.rel = "stylesheet";
+  testimonialsStylesheet.href = "css/depoimentos.css";
+  document.head.appendChild(testimonialsStylesheet);
+}
+
+if (document.querySelector(".banner-promo")) {
+  const promoStylesheet = document.createElement("link");
+  promoStylesheet.rel = "stylesheet";
+  promoStylesheet.href = "css/banner-promo.css";
+  document.head.appendChild(promoStylesheet);
 }
 
 function normalizeSearchText(value) {
@@ -52,10 +44,10 @@ function renderProducts(selectedCategory = "all", query = "") {
     const category = product.dataset.category;
     const name = normalizeSearchText(product.dataset.name);
     const categoryLabel = normalizeSearchText(
-      product.querySelector(".badge")?.textContent || "",
+      product.querySelector(".badge")?.textContent || ""
     );
     const description = normalizeSearchText(
-      product.querySelector(".produto-info p")?.textContent || "",
+      product.querySelector(".produto-info p")?.textContent || ""
     );
     const matchesCategory =
       selectedCategory === "all" || category === selectedCategory;
@@ -93,7 +85,7 @@ document.querySelectorAll("[data-category-target]").forEach((link) => {
     const selected = link.dataset.categoryTarget;
     searchInput.value = "";
     const matchingFilter = document.querySelector(
-      `.filter[data-filter="${selected}"]`,
+      `.filter[data-filter="${selected}"]`
     );
     filters.forEach((button) => {
       const isActive = button === matchingFilter;
@@ -104,20 +96,42 @@ document.querySelectorAll("[data-category-target]").forEach((link) => {
   });
 });
 
-searchInput.addEventListener("input", (event) => {
-  const activeFilter =
-    document.querySelector(".filter.is-active")?.dataset.filter || "all";
-  renderProducts(activeFilter, event.target.value);
-});
+if (searchInput) {
+  searchInput.addEventListener("input", (event) => {
+    const activeFilter =
+      document.querySelector(".filter.is-active")?.dataset.filter || "all";
+    renderProducts(activeFilter, event.target.value);
+  });
+}
 
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const activeFilter =
-    document.querySelector(".filter.is-active")?.dataset.filter || "all";
-  renderProducts(activeFilter, searchInput.value);
-  catalogSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  document.querySelector(".filter.is-active")?.focus({ preventScroll: true });
-});
+if (searchForm) {
+  searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const activeFilter =
+      document.querySelector(".filter.is-active")?.dataset.filter || "all";
+    renderProducts(activeFilter, searchInput.value);
+    catalogSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector(".filter.is-active")?.focus({ preventScroll: true });
+  });
+}
+
+// Add to cart animation
+style = document.createElement("style");
+style.textContent = `
+  @keyframes slideIn {
+    from {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  .cart-notification {
+    font-family: "DM Sans", sans-serif;
+  }
+`;
+document.head.appendChild(style);
 
 renderProducts();
-updateCartCount();

@@ -1,0 +1,83 @@
+.banner-promo {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  padding: 32px var(--pad);
+  text-align: center;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.banner-promo-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner-promo .eyebrow {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
+}
+
+.banner-promo h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.banner-promo p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+.promo-code {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  margin-right: 16px;
+}
+
+.banner-btn {
+  background: #fff;
+  color: var(--accent-dark);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-transform: uppercase;
+}
+
+.banner-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 640px) {
+  .banner-promo {
+    padding: 24px var(--pad);
+  }
+
+  .banner-promo h2 {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    margin-bottom: 12px;
+  }
+
+  .promo-code,
+  .banner-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .promo-code:last-child {
+    margin-right: 0;
+  }
+}
