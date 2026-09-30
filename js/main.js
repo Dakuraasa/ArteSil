@@ -7,6 +7,13 @@ const emptyState = document.querySelector(".empty-state");
 const resultsStatus = document.getElementById("results-status");
 const cartCount = document.querySelector(".cart-link span");
 
+if (document.querySelector(".sobre")) {
+  const aboutStylesheet = document.createElement("link");
+  aboutStylesheet.rel = "stylesheet";
+  aboutStylesheet.href = "css/sobre.css";
+  document.head.appendChild(aboutStylesheet);
+}
+
 function updateCartCount() {
   let cart = [];
   try {
@@ -64,8 +71,9 @@ function renderProducts(selectedCategory = "all", query = "") {
     visibleProducts += isVisible ? 1 : 0;
   });
 
-  emptyState.hidden = visibleProducts > 0;
-  resultsStatus.textContent = `${visibleProducts} ${visibleProducts === 1 ? "produto encontrado" : "produtos encontrados"}.`;
+  if (emptyState) emptyState.hidden = visibleProducts > 0;
+  if (resultsStatus)
+    resultsStatus.textContent = `${visibleProducts} ${visibleProducts === 1 ? "produto encontrado" : "produtos encontrados"}.`;
 }
 
 filters.forEach((button) => {
